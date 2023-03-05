@@ -1,0 +1,49 @@
+/* Custom styles for PDF Merge Tool */
+.neumorphism {
+    background-color: #1a202c;
+    box-shadow: 10px 10px 30px #0d1117, -10px -10px 30px #232b3a;
+  }
+  
+  .neumorphism:hover {
+    box-shadow: 8px 8px 20px #0d1117, -8px -8px 20px #232b3a;
+  }
+  
+  .neumorphism:focus {
+    outline: none;
+    box-shadow: 8px 8px 20px #0d1117, -8px -8px 20px #232b3a;
+  }
+  
+  .neumorphism:active {
+    box-shadow: inset 5px 5px 10px #0d1117, inset -5px -5px 10px #232b3a;
+  }
+  
+  .neumorphism input[type="file"] {
+    background-color: #1a202c;
+    color: #d8dee9;
+    border: 1px solid #2d3748;
+    box-shadow: 2px 2px 6px #0d1117, -2px -2px 6px #232b3a;
+  }
+  
+  .neumorphism input[type="file"]:hover {
+    border: 1px solid #718096;
+  }
+  
+  .neumorphism button {
+    background-color: #f56565;
+    color: #d8dee9;
+    border: none;
+    box-shadow: 5px 5px 10px #0d1117, -5px -5px 10px #232b3a;
+  }
+  
+  .neumorphism button:hover {
+    background-color: #ed8936;
+  }
+  
+  .neumorphism a {
+    color: #d8dee9;
+  }
+  
+  .neumorphism a:hover {
+    color: #e2e8f0;
+  }
+  
