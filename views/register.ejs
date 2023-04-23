@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id"
+        content="69536120589-u4teijii3c498mncv7o0vj8j03uarvoa.apps.googleusercontent.com">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/@tailwindcss/forms@0.2.1/dist/forms.min.css" rel="stylesheet">
+
+    <script type="module">
+        import { withAnimations } from 'https://cdn.skypack.dev/animated-tailwindcss'
+        tailwind.config = withAnimations()
+      </script>
+      <script type="module">
+        import tailwindcssforms from 'https://cdn.jsdelivr.net/npm/@tailwindcss/forms@0.5.3/+esm'
+        </script>
+</head>
+
+<body class="h-full text-white bg-[#0e0e0e] overflow-hidden">
+    <section class="flex items-center h-screen">
+        <div class="flex justify-center w-[65%]">
+            <div class="flex flex-col text-xl leading-10 w-[50%]">
+                <div class="">
+                    <h1 class="mb-3 text-4xl ">Sign up</h1>
+
+                </div>
+                <form action="/login" method="post" id="register_form">
+                    <div class="flex gap-3">
+                        <input type="text" name="fname" value="" placeholder="First name" required
+                            class="shadow-sm w-full placeholder:text-[#cccccc] placeholder:text-lg my-3 border-[#cccccc] border bg-transparent  rounded-xl">
+                        <input type="text" name="lname" value="" placeholder="last name" required
+                            class="shadow-sm w-full placeholder:text-[#cccccc] placeholder:text-lg my-3 border-[#cccccc] border bg-transparent  rounded-xl">
+                    </div>
+                    <div>
+                        <input type="email" name="email" value="" placeholder="Enter your email" required
+                            class="shadow-sm w-full placeholder:text-[#cccccc] placeholder:text-lg my-3 border-[#cccccc] border bg-transparent  rounded-xl">
+                    </div>
+                    <div>
+                        <input type="text" name="mobileNo" value="" placeholder="Enter phone no." required
+                            class="shadow-sm w-full placeholder:text-[#cccccc] placeholder:text-lg my-3 border-[#cccccc] border bg-transparent  rounded-xl">
+                    </div>
+                    <div>
+                        <input type="text" name="institute" value="" placeholder="Institute name" required
+                            class="shadow-sm w-full placeholder:text-[#cccccc] placeholder:text-lg my-3 border-[#cccccc] border bg-transparent  rounded-xl">
+                    </div>
+                    <div>
+                        <input type="text" name="department" value="" placeholder="Department" required
+                            class="shadow-sm w-full placeholder:text-[#cccccc] placeholder:text-lg my-3 border-[#cccccc] border bg-transparent  rounded-xl">
+                    </div>
+                    <div class="flex gap-3">
+                        <input type="password" name="password" placeholder="password" required
+                            class="shadow-sm w-full placeholder:text-lg placeholder:text-[#cccccc] my-3 border-[#cccccc] border bg-transparent  rounded-xl">
+                        <input type="password" name="cpassword" placeholder="Conform password" required
+                            class="shadow-sm w-full placeholder:text-lg placeholder:text-[#cccccc] my-3 border-[#cccccc] border bg-transparent  rounded-xl">
+                    </div>
+
+                    <p class="mb-3 text-sm text-secondary text-[#cccccc] mx-3">
+                        By registering, you agree to the processing of your personal data by
+                        EasyXerox as described in the <a href="#" target="_blank" class="text-red-500 ">Privacy
+                            Policy</a>.
+                    </p>
+
+                    <div class="flex items-center mx-3 mb-4">
+                        <input class="mr-1" type="checkbox" value="1" name="tos" id="tos" required>
+                        <label class="mb-0 font-normal" for="tos">I've read and agree to the <a href="#" target="_blank"
+                                class="text-red-500 ">Terms of Service</a></label>
+                    </div>
+                    <button type="submit" class="w-full py-1.5 text-xl bg-red-700 rounded-lg">Sign in</button>
+                </form>
+            </div>
+        </div>
+        <div class="w-[35%]">
+            <div class="grid w-1/2 h-screen m-auto border-l place-content-center border-[#444444]">
+                <img src="images/easyXerox.png" alt=""
+                    class="w-[20rem] bg-[#0e0e0e] p-3 animate-backInRight relative right-[8.4rem]">
+            </div>
+        </div>
+    </section>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

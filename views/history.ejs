@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take it Easy</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Public/styles/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[url('/images/profile_back.png')] bg-cover bg-fixed text-white ">
+    <nav class="flex justify-between my-4 mx-9">
+        <div>
+            <img src="/images/easyXerox.png" alt="" class="w-40">
+        </div>
+        <div class="flex items-center gap-6">
+            <p class="text-2xl text-[#ed2224]"><%=pdfs[0].userId.fname%> <%=pdfs[0].userId.lname%></p>
+            <img src="/images/profile.png" alt="" class="w-16 text-white border-4 border-red-800 rounded-full">
+        </div>
+    </nav>
+    
+    <section>
+        <table class="w-[80%] text-2xl m-auto" cellspacing="20">
+            <tr class="">
+                <td>PDF</td>
+                <td>ContentType</td>
+                <td>Page</td>
+                <td>Charge</td>
+                <td>View</td>
+                <td>Status</td>
+                <td>Delete</td>
+            </tr>
+            <% pdfs.forEach((p) => { %>
+                <tr>
+                    <td><%=p.pdf%></td>
+                    <td><%=p.contentType%></td>
+                    <td><%=p.page%></td>
+                    <td><%=p.charge%> INR</td>
+                    <td><a href="/<%=p.path%>">View</a></td>
+                    <td><%=p.status%></td>
+                    <td><a id="delete_pdf" pdfId="<%=p._id%>" style="cursor: pointer;">delete</a></td>
+                </tr>
+                <% }) %>
+        </table>
+    </section>
+
+    <script src="/js/index_j.js"></script>
+
+</body>
+
+</html>
+</body>
+</html>

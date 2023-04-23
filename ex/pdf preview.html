@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Preview Example</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+            margin-bottom: 10px;
+        }
+        .pdf-list-item {
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="pdf-file" accept=".pdf" multiple>
+    <div id="pdf-preview-container"></div>
+    <div id="pdf-list-container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script>
+        const pdfFileInput = document.getElementById('pdf-file');
+        const pdfPreviewContainer = document.getElementById('pdf-preview-container');
+        const pdfListContainer = document.getElementById('pdf-list-container');
+        const pdfDocs = [];
+
+        pdfFileInput.addEventListener('change', (event) => {
+            pdfPreviewContainer.innerHTML = '';
+            pdfListContainer.innerHTML = '';
+            const files = event.target.files;
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                if (file.type !== 'application/pdf') {
+                    alert('Please select a PDF file');
+                    continue;
+                }
+
+                const fileReader = new FileReader();
+                fileReader.onload = () => {
+                    const data = new Uint8Array(fileReader.result);
+                    pdfjsLib.getDocument(data).promise.then((pdfDoc) => {
+                        pdfDocs.push(pdfDoc);
+                        const pdfName = file.name;
+                        const listItem = document.createElement('div');
+                        listItem.className = 'pdf-list-item';
+                        listItem.innerText = pdfName;
+                        listItem.addEventListener('click', () => {
+                            pdfDoc.promise.then(() => {
+                            window.open(pdfDoc.url, '_blank');
+                            });
+                        });
+                        pdfListContainer.appendChild(listItem);
+                        pdfDoc.getPage(1).then((page) => {
+                            const canvas = document.createElement('canvas');
+                            const canvasContext = canvas.getContext('2d');
+                            const viewport = page.getViewport({scale: 1});
+                            canvas.height = viewport.height;
+                            canvas.width = viewport.width;
+                            page.render({
+                                canvasContext,
+                                viewport
+                            });
+                            pdfPreviewContainer.appendChild(canvas);
+                        });
+                    });
+                };
+                fileReader.readAsArrayBuffer(file);
+            }
+        });
+    </script>
+</body>
+</html>

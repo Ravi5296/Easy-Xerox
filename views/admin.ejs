@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Public/styles/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[url('/images/profile_back.png')] bg-cover bg-fixed text-white ">
+    <nav class="flex justify-between my-4 mx-9">
+        <div>
+            <img src="/images/easyXerox.png" alt="" class="w-40">
+        </div>
+        <div class="flex items-center gap-6">
+            <p class="text-2xl text-[#ed2224]">Admin</p>
+            <img src="/images/profile.png" alt="" class="w-16 text-white border-4 border-red-800 rounded-full">
+        </div>
+    </nav>
+    
+    <section>
+        <table class="w-[80%] text-2xl m-auto">
+            <tr class="">
+                <td>First Name</td>
+                <td>Last Name</td>
+                <td>PDF</td>
+                <td>Charges</td>
+                <td>Status</td>
+                <td>Select</td>
+                <!-- <td>Action</td> -->
+            </tr>
+            <% pdfs.forEach((p) => { %>
+                <tr>
+                    <td><%=p.userId.fname%></td>
+                    <td><%=p.userId.lname%></td>
+                    <td><%=p.pdf%></td>
+                    <td><%=p.charge%> INR</td>
+                    <td><%=p.status%></td>
+                    <td><a href="/<%=p.path%>" id="selectPdf" pdfId="<%=p._id%>">Select</a></td>
+                    <!-- <td><a onclick=".print()" style="cursor: hand;">Print</a></td> -->
+                </tr>
+            <% }) %>
+        </table>
+    </section>
+    <script src="/js/index_j.js"></script>
+
+</body>
+
+</html>
+</body>
+</html>
